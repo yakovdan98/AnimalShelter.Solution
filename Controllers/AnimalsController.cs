@@ -20,6 +20,17 @@ namespace ShelterApi.Controllers
     {
       return await _db.Animals.ToListAsync();
     }
-    
-  }  
+
+    [HttpGet]
+    public async Task<ActionResult<Animal>> GetAnimal(int id)
+    {
+      Animal animal = await _db.Animals.FindAsync(id);
+
+      if (animal == null)
+      {
+        return NotFound();
+      }
+      return animal;
+    }
+  }
 }
