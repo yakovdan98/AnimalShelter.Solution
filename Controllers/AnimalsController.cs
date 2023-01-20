@@ -41,15 +41,15 @@ namespace ShelterApi.Controllers
       return CreatedAtAction(nameof(GetAnimal), new { id = animal.AnimalId }, animal);
     }
 
-        [HttpPut("{id}")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Animal animal)
     {
       Animal originalAnimal = await _db.Animals.FindAsync(id);
-      
+
       if (id != animal.AnimalId)
       {
         return BadRequest();
-      }   
+      }
 
       _db.Animals.Update(animal);
 
@@ -75,6 +75,21 @@ namespace ShelterApi.Controllers
     private bool AnimalExists(int id)
     {
       return _db.Animals.Any(e => e.AnimalId == id);
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAnimal(int id)
+    {
+      Animal animal = await _db.Animals.FindAsync(id);
+      if (animal == null)
+      {
+        return NotFound();
+      }
+
+      _db.Animals.Remove(animal);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
     }
   }
 }
