@@ -2,9 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using ShelterApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ShelterApi.Controllers
+namespace ShelterApi.Controllers.v1
 {
-  [Route("api/[controller]")]
+  [ApiVersion("1.0")]
+  [Route("api/v{version:apiVersion}/[controller]")]
   [ApiController]
   public class AnimalsController : ControllerBase
   {

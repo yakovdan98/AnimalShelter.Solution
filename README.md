@@ -59,24 +59,46 @@ $ dotnet ef database update
  ```
  $ dotnet run
  ```
-## API Documentation
+## API Documentation v1
 ### Endpoints for GET
 | Endpoints                    | Required | Returns                                    |
 | ---------------------------------|------ | ------------------------------------------ |
-| api/animals                        | Required| All animals                             |
-| api/animals/1                       | Id Required | An animal with id = 1                     |
+| api/v1/animals                        | Required| All animals                             |
+| api/v1/animals/1                       | Id Required | An animal with id = 1                     |
 ### Endpoints for POST
 | Endpoints                               | Request Body Example                                     |
 | --------------------------------------- | ------------------------------------------ |
-| api/animals                       | { "name": "Lucky", "type": "Dog", "Age": 3 } |
+| api/v1/animals                       | { "name": "Lucky", "type": "Dog", "Age": 3 } |
 ### Endpoints for PUT
 | Endpoints                               | Request Body Example                                     |
 | --------------------------------------- | ------------------------------------------ |
-| api/animals                       | { "animalId": 1, "name": "Lucy", "type": "Cat", "Age": 5 } |
+| api/v1/animals                       | { "animalId": 1, "name": "Lucy", "type": "Cat", "Age": 5 } |
 ### Endpoints for DELETE
 | Endpoints                     | Result                                     |
 | --------------------------------------- | ------------------------------------------ |
-| api/animals/1                    | Deletes an animal with id = 1      |
+| api/v1/animals/1                    | Deletes an animal with id = 1      |
+## API Documentation v2
+### Note: added querying contains all default endpoints
+### Endpoints for GET
+| Endpoints                    | Required | Returns                                    |
+| ---------------------------------|------ | ------------------------------------------ |
+| api/v2/animals                        | Required| All animals                             |
+| api/v2/animals?name=lucky                        | Required| All with lucky name              |
+| api/v2/animals?type=cat                        | Required| All with cat type             |
+| api/v2/animals?age=3                        | Required| All with age of 3             |
+| api/v2/animals/1                       | Id Required | An animal with id = 1                     |
+### Endpoints for POST
+| Endpoints                               | Request Body Example                                     |
+| --------------------------------------- | ------------------------------------------ |
+| api/v2/animals                       | { "name": "Lucky", "type": "Dog", "Age": 3 } |
+### Endpoints for PUT
+| Endpoints                               | Request Body Example                                     |
+| --------------------------------------- | ------------------------------------------ |
+| api/v2/animals                       | { "animalId": 1, "name": "Lucy", "type": "Cat", "Age": 5 } |
+### Endpoints for DELETE
+| Endpoints                     | Result                                     |
+| --------------------------------------- | ------------------------------------------ |
+| api/v2/animals/1                    | Deletes an animal with id = 1      |
 ## Known Bugs
 
 * No known bugs.
