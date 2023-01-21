@@ -18,7 +18,6 @@ namespace ShelterApi.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Animal>>> Get()
     {
-      var animals = _db.Animals.G
       return await _db.Animals.ToListAsync();
     }
 
