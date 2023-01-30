@@ -94,7 +94,7 @@ $ dotnet ef database update
 ### Endpoints for PUT
 | Endpoints                               | Request Body Example                                     |
 | --------------------------------------- | ------------------------------------------ |
-| api/v2/animals                       | { "animalId": 1, "name": "Lucy", "type": "Cat", "Age": 5 } |
+| api/v2/animals/1                       | { "animalId": 1, "name": "Lucy", "type": "Cat", "Age": 5 } |
 ### Endpoints for DELETE
 | Endpoints                     | Result                                     |
 | --------------------------------------- | ------------------------------------------ |
