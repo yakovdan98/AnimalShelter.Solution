@@ -19,7 +19,7 @@ namespace ShelterApi.Controllers.v2
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Animal>>> Get(string name, string type, int age)
     {
-      IQueryable<Animal> query = _db.Animals.AsQueryable().OrderBy(e => e.Name);
+      IQueryable<Animal> query = _db.Animals.AsQueryable();
       if (name != null)
       {
         query = query.Where(entry => entry.Name.Contains(name));
@@ -32,7 +32,7 @@ namespace ShelterApi.Controllers.v2
       {
         query = query.Where(entry => entry.Age == age);
       }
-      return await _db.Animals.ToListAsync();
+      return await query.ToListAsync();
     }
 
     [HttpGet("{id}")]
@@ -58,8 +58,6 @@ namespace ShelterApi.Controllers.v2
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Animal animal)
     {
-      Animal originalAnimal = await _db.Animals.FindAsync(id);
-
       if (id != animal.AnimalId)
       {
         return BadRequest();

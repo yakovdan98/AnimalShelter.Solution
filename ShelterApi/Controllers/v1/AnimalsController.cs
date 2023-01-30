@@ -45,8 +45,6 @@ namespace ShelterApi.Controllers.v1
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Animal animal)
     {
-      Animal originalAnimal = await _db.Animals.FindAsync(id);
-
       if (id != animal.AnimalId)
       {
         return BadRequest();

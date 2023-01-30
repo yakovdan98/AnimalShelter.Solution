@@ -41,7 +41,6 @@ else
 }
 
 app.UseAuthorization();
-app.UseAuthentication();
 
 app.MapControllers();
 
